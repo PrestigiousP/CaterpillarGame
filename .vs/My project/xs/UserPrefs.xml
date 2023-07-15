@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Prefabs/Player/scripts/PlayerCamera.cs">
+    <Files>
+      <File FileName="../ProjectFPJ/dungeonrunnercourse/Assets/GameAssets/Characters/NinjaFrog/Movement.cs" />
+      <File FileName="../ProjectFPJ/dungeonrunnercourse/Assets/GameAssets/Characters/NinjaFrog/InputHandler.cs" Line="5" Column="1" />
+      <File FileName="Assets/Prefabs/Player/scripts/InputHandler.cs" Line="40" Column="1" />
+      <File FileName="Assets/Prefabs/Player/scripts/CameraPosition.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="My project" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Prefabs" expanded="True">
+                <Node name="Player" expanded="True">
+                  <Node name="scripts" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="66dfeacf-19f0-4740-a63e-73382bc85f2d" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
