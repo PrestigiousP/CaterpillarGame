@@ -56,8 +56,9 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Prefabs/Player/scripts/CameraMove.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/ArmMovement.cs" />
+    <Compile Include="Assets/Prefabs/Player/scripts/Caterpillar.cs" />
+    <Compile Include="Assets/Prefabs/Player/scripts/Segment.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/PlayerCamera.cs" />
   </ItemGroup>
   <ItemGroup>

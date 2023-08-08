@@ -5,18 +5,18 @@ public class PlayerCamera : MonoBehaviour
     public float sensX;
     public float sensY;
     public Transform orientation;
+    public float cameraRadius;
+    public Caterpillar Caterpillar;
 
-    private const float CAMERA_RADIUS = 0.8f;
-
-    private float xRotation;
-    private float yRotation;
+    private float _xRotation;
+    private float _yRotation;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        transform.position = new Vector3(orientation.position.x, orientation.position.y, transform.position.z + CAMERA_RADIUS);
+        transform.position = new Vector3(orientation.position.x, orientation.position.y, transform.position.z + cameraRadius);
         transform.LookAt(orientation.position);
     }
 
@@ -28,20 +28,19 @@ public class PlayerCamera : MonoBehaviour
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        xRotation -= mouseX;
-        yRotation -= mouseY;
+        _xRotation -= mouseX;
+        _yRotation -= mouseY;
 
-        yRotation = Mathf.Clamp(yRotation, -1, 1);
+        _yRotation = Mathf.Clamp(_yRotation, -1, 1);
 
-        float xCameraPos = Mathf.Cos(xRotation) * CAMERA_RADIUS;
-        float yCameraPos = Mathf.Sin(yRotation) * CAMERA_RADIUS;
-        float zCameraPos = Mathf.Sin(xRotation) * CAMERA_RADIUS;
+        float xCameraPos = Mathf.Cos(_xRotation) * cameraRadius;
+        float yCameraPos = Mathf.Sin(_yRotation) * cameraRadius;
+        float zCameraPos = Mathf.Sin(_xRotation) * cameraRadius;
 
         transform.localPosition = new Vector3(
             orientation.position.x + xCameraPos,
             orientation.position.y + yCameraPos,
             orientation.position.z + zCameraPos);
-
 
         transform.LookAt(orientation.position);
     }

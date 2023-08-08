@@ -345,8 +345,9 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Prefabs/Player/scripts/ArmMovement.cs"
-"Assets/Prefabs/Player/scripts/CameraMove.cs"
+"Assets/Prefabs/Player/scripts/Caterpillar.cs"
 "Assets/Prefabs/Player/scripts/PlayerCamera.cs"
+"Assets/Prefabs/Player/scripts/Segment.cs"
 -langversion:9.0
 
 /deterministic
