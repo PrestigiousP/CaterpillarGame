@@ -60,6 +60,7 @@
     <Compile Include="Assets/Prefabs/Player/scripts/Caterpillar.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/Segment.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/PlayerCamera.cs" />
+    <Compile Include="Assets/Prefabs/Player/scripts/Bezier.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

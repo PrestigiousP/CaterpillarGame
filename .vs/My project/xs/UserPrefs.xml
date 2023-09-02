@@ -1,13 +1,14 @@
-﻿<Properties StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|" GitUserInfo="UsingGIT">
-  <MultiItemStartupConfigurations />
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2dba9ace-8579-4060-b5a1-6bf2f1f343d7" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Prefabs/Player/scripts/Caterpillar.cs">
     <Files>
       <File FileName="../ProjectFPJ/dungeonrunnercourse/Assets/GameAssets/Characters/NinjaFrog/Movement.cs" />
       <File FileName="../ProjectFPJ/dungeonrunnercourse/Assets/GameAssets/Characters/NinjaFrog/InputHandler.cs" />
       <File FileName="Assets/Prefabs/Player/scripts/PlayerCamera.cs" />
       <File FileName="Assets/Prefabs/Player/scripts/ArmMovement.cs" />
-      <File FileName="Assets/Prefabs/Player/scripts/Caterpillar.cs" Line="1" Column="1" />
+      <File FileName="Assets/Prefabs/Player/scripts/Caterpillar.cs" Line="38" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,7 +28,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4491c095-81f5-49ab-aa3f-fc8fd2799346" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>

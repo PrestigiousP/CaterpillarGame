@@ -6,7 +6,6 @@ public class PlayerCamera : MonoBehaviour
     public float sensY;
     public Transform orientation;
     public float cameraRadius;
-    public Caterpillar Caterpillar;
 
     private float _xRotation;
     private float _yRotation;

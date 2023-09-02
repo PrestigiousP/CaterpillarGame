@@ -31,35 +31,20 @@ public class Caterpillar : MonoBehaviour
 
         if (w)
         {
-            //Component[] childComponents = transform.GetComponentsInChildren<Component>();
-
-            //foreach (var component in childComponents)
-            //{
-            //    if (component.name == "Armature")
-            //    {
-            //        Debug.Log($"Component: {component.name}, Type: {component.GetType()}");
+            var armature = GetComponentInChildren<Rigidbody>();
+            var firstBone = armature.transform.Find("Bone");
+            var secondBone = firstBone.transform.Find("Bone.001");
 
 
-            //    }
-            //}
         }
-
-        //if (w)
-        //{
-        //    var aimVector = playerCamera.transform.position - Segments[7].transform.position;
-
-        //    var speed = 0.01f * Time.deltaTime;
-
-        //    Segments[7].transform.position = new Vector3(aimVector.x + speed, Segments[7].transform.position.y, aimVector.z + speed);
-        //}
     }
 
     private void StickSegment()
     {
-        var armature = GetComponentInChildren<Rigidbody>();
-        var firstBone = armature.transform.Find("Bone");
-        var secondBone = firstBone.transform.Find("Bone.001");
+        //var armature = GetComponentInChildren<Rigidbody>();
+        //var firstBone = armature.transform.Find("Bone");
+        //var secondBone = firstBone.transform.Find("Bone.001");
 
-        Debug.Log($"first: {firstBone.transform.rotation} second: {secondBone.transform.rotation}");
+        //Debug.Log($"first: {firstBone.transform.rotation} second: {secondBone.transform.rotation}");
     }
 }
