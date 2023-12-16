@@ -56,11 +56,13 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Prefabs/Player/scripts/Tags.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/ArmMovement.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/Caterpillar.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/Segment.cs" />
+    <Compile Include="Assets/Prefabs/Player/scripts/Player.cs" />
     <Compile Include="Assets/Prefabs/Player/scripts/PlayerCamera.cs" />
-    <Compile Include="Assets/Prefabs/Player/scripts/Bezier.cs" />
+    <Compile Include="Assets/Prefabs/Player/scripts/Movement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

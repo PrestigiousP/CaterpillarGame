@@ -43,6 +43,4 @@ public class PlayerCamera : MonoBehaviour
 
         transform.LookAt(orientation.position);
     }
-
-    public void Move() { }
 }
