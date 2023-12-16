@@ -12,11 +12,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         _segments = GetComponentsInChildren<Transform>().ToList();
-        // Remove the Caterpillar component and only
-        _segments.RemoveAt(0);
-
-        //_segments.ForEach(s => Debug.Log(s));
-        //SetLerpStep();
+        _segments = _segments.Where(s => !s.name.Contains("Caterpillar", StringComparison.Ordinal)).ToList();
     }
 
     // Update is called once per frame
@@ -28,14 +24,6 @@ public class Movement : MonoBehaviour
         SetSegmentsPosition(translationY);
     }
 
-    //private void SetLerpStep()
-    //{
-    //    float firstSphereX = _segments.First().transform.position.x;
-    //    float lastSphereX = _segments.Last().transform.position.x;
-
-    //    _lerpStep = (lastSphereX - firstSphereX) / NbSegments;
-    //}
-
     private void SetSegmentsPosition(float translationY)
     {
         //SetControlsPointPosition();
@@ -46,18 +34,13 @@ public class Movement : MonoBehaviour
 
         for (int i = 0; i < NbSegments; i++)
         {
-            if (i == 0 || i == NbSegments -1)
+            if (i == 0 || i == NbSegments - 1)
             {
                 continue;
             }
 
+            // TODO modifier 
             float lerpStep = (i * 0.1f) + 0.1f;
-            //float lerpStep = step / NbSegments;
-
-
-            //float lerpStep = i * 0.1f;
-
-            //float lerpStep = (float)i / NbSegments;
 
             Debug.Log($"i: {i} lerpStep: {lerpStep}");
 
@@ -69,22 +52,6 @@ public class Movement : MonoBehaviour
 
             var x = Mathf.Lerp(x1, x2, lerpStep);
             var y = Mathf.Lerp(y1, y2, lerpStep);
-
-            //if (i == 4 || i == 7 || i == 8)
-            //{
-
-            //    _segments[i].transform.position = new Vector3(
-            //        x,
-            //        y + translationY,
-            //        _segments[i].transform.position.z);
-            //}
-            //else
-            //{
-            //    _segments[i].transform.position = new Vector3(
-            //        _segments[i].transform.position.x,
-            //        _segments[i].transform.position.y,
-            //        _segments[i].transform.position.z);
-            //}
 
             _segments[i].transform.position = new Vector3(
                 x,
