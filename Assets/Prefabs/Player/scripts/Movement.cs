@@ -28,9 +28,17 @@ public class Movement : MonoBehaviour
 
     private void SetSegmentsPosition(float translationY)
     {
+        // cubic
+        //var firstSphere = _segments.Find(s => s.name.Equals("Sphere", StringComparison.Ordinal));
+        //var middleSphere = _segments.Find(s => s.name.Equals("Sphere (6)", StringComparison.Ordinal));
+        //var secondMiddleSphere = _segments.Find(s => s.name.Equals("Sphere (13)", StringComparison.Ordinal));
+        //var lastSphere = _segments.Find(s => s.name.Equals("Sphere (20)", StringComparison.Ordinal));
+
+        // quadratic
         var firstSphere = _segments.Find(s => s.name.Equals("Sphere", StringComparison.Ordinal));
-        var middleSphere = _segments.Find(s => s.name.Equals("Sphere (9)", StringComparison.Ordinal));
-        var LastSphere = _segments.Find(s => s.name.Equals("Sphere (19)", StringComparison.Ordinal));
+        var middleSphere = _segments.Find(s => s.name.Equals("Sphere (10)", StringComparison.Ordinal));
+        var lastSphere = _segments.Find(s => s.name.Equals("Sphere (20)", StringComparison.Ordinal));
+
 
         for (int i = 0; i < _nbSegments; i++)
         {
@@ -39,27 +47,58 @@ public class Movement : MonoBehaviour
                 continue;
             }
 
-            // TODO modifier 
-            float lerpStep = (i * 0.05f) + 0.05f;
+            // TODO à tweaker 
+            float lerpStep = (i * 0.05f);
 
-            Debug.Log($"i: {i} lerpStep: {lerpStep}");
-
-            var x1 = Mathf.Lerp(firstSphere.position.x, middleSphere.position.x, lerpStep);
-            var y1 = Mathf.Lerp(firstSphere.position.y, middleSphere.position.y, lerpStep);
-
-            var x2 = Mathf.Lerp(middleSphere.position.x, LastSphere.position.x, lerpStep);
-            var y2 = Mathf.Lerp(middleSphere.position.y, LastSphere.position.y, lerpStep);
-
-            var x = Mathf.Lerp(x1, x2, lerpStep);
-            var y = Mathf.Lerp(y1, y2, lerpStep);
+            //var vector = CreateCubicVector(firstSphere, middleSphere, secondMiddleSphere, lastSphere, lerpStep, i, translationY);
+            var vector = CreateQuadraticVector(firstSphere, middleSphere, lastSphere, lerpStep, i, translationY);
 
             _segments[i].transform.position = new Vector3(
-                x,
-                y + translationY,
-                _segments[i].transform.position.z);
-
-            //var vector = new Vector3(x, y, _segments[0].transform.position.z);
-            //Debug.Log($"{i} {vector}");
+                vector.x,
+                vector.y,
+                vector.z);
         }
+    }
+
+    //private Vector3 CreateCubicVector(Transform firstSphere,
+    //    Transform secondSphere,
+    //    Transform thirdSphere,
+    //    Transform fourthSphere,
+    //    float lerpStep,
+    //    int index,
+    //    float translationY)
+    //{
+    //    var v1 = CreateQuadraticVector(firstSphere, secondSphere, thirdSphere, lerpStep, index, translationY);
+    //    var v2 = CreateQuadraticVector(secondSphere, thirdSphere, fourthSphere, lerpStep, index, translationY);
+
+    //    var x = Mathf.Lerp(v1.x, v2.x, lerpStep);
+    //    var y = Mathf.Lerp(v1.y, v2.y, lerpStep);
+
+    //    return new Vector3(
+    //        x,
+    //        y,
+    //        _segments[index].transform.position.x);
+    //}
+
+    private Vector3 CreateQuadraticVector(Transform firstSphere,
+        Transform secondSphere,
+        Transform thirdSphere,
+        float lerpStep,
+        int index,
+        float translationY)
+    {
+        var x1 = Mathf.Lerp(firstSphere.position.x, secondSphere.position.x, lerpStep);
+        var y1 = Mathf.Lerp(firstSphere.position.y, secondSphere.position.y + (translationY * 4), lerpStep);
+
+        var x2 = Mathf.Lerp(secondSphere.position.x, thirdSphere.position.x, lerpStep);
+        var y2 = Mathf.Lerp(secondSphere.position.y + (translationY * 4), thirdSphere.position.y, lerpStep);
+
+        var x = Mathf.Lerp(x1, x2, lerpStep);
+        var y = Mathf.Lerp(y1, y2, lerpStep);
+
+        return new Vector3(
+                x,
+                y,
+                _segments[index].transform.position.z);
     }
 }
