@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private const int NbSegments = 9;
+    private int _nbSegments;
     private List<Transform> _segments = new();
 
     // Start is called before the first frame update
     void Start()
     {
-        _segments = GetComponentsInChildren<Transform>().ToList();
-        _segments = _segments.Where(s => !s.name.Contains("Caterpillar", StringComparison.Ordinal)).ToList();
+        var transforms = GetComponentsInChildren<Transform>();
+        _nbSegments = transforms.Where(s => s.name.Contains("Sphere", StringComparison.Ordinal)).Count();
+        _segments = transforms.Where(s => !s.name.Equals("Caterpillar", StringComparison.Ordinal)).ToList();
+        //Debug.Log($"nbsegs = {_nbSegments}");
     }
 
     // Update is called once per frame
@@ -26,21 +28,19 @@ public class Movement : MonoBehaviour
 
     private void SetSegmentsPosition(float translationY)
     {
-        //SetControlsPointPosition();
+        var firstSphere = _segments.Find(s => s.name.Equals("Sphere", StringComparison.Ordinal));
+        var middleSphere = _segments.Find(s => s.name.Equals("Sphere (9)", StringComparison.Ordinal));
+        var LastSphere = _segments.Find(s => s.name.Equals("Sphere (19)", StringComparison.Ordinal));
 
-        var firstSphere = _segments.Find(s => s.name.Contains("FirstSphere", StringComparison.Ordinal));
-        var middleSphere = _segments.Find(s => s.name.Contains("MiddleSphere", StringComparison.Ordinal));
-        var LastSphere = _segments.Find(s => s.name.Contains("LastSphere", StringComparison.Ordinal));
-
-        for (int i = 0; i < NbSegments; i++)
+        for (int i = 0; i < _nbSegments; i++)
         {
-            if (i == 0 || i == NbSegments - 1)
+            if (i == 0 || i == _nbSegments - 1)
             {
                 continue;
             }
 
             // TODO modifier 
-            float lerpStep = (i * 0.1f) + 0.1f;
+            float lerpStep = (i * 0.05f) + 0.05f;
 
             Debug.Log($"i: {i} lerpStep: {lerpStep}");
 
@@ -58,10 +58,8 @@ public class Movement : MonoBehaviour
                 y + translationY,
                 _segments[i].transform.position.z);
 
-            var vector = new Vector3(x, y, _segments[0].transform.position.z);
-            Debug.Log($"{i} {vector}");
-            //Debug.Log($"i: {i} vector: {vector}");
-            //segment.transform.position = vector;
+            //var vector = new Vector3(x, y, _segments[0].transform.position.z);
+            //Debug.Log($"{i} {vector}");
         }
     }
 }

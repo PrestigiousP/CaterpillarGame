@@ -180,11 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d28a95ea42ff4e479671de9ccf21ef6, type: 3}
---- !u!4 &351063768 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1928496399298958978, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
-  m_PrefabInstance: {fileID: 1928496399490046042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &590731305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,8 +452,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensX: 400
   sensY: 400
-  orientation: {fileID: 351063768}
+  orientation: {fileID: 2023747531}
   cameraRadius: 5
+--- !u!4 &2023747531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8221533154081391262, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
+  m_PrefabInstance: {fileID: 1928496399490046042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1928496399490046042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,11 +476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928496398714385892, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1928496398714385892, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92838323
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 1928496398714385892, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -517,6 +517,18 @@ PrefabInstance:
     - target: {fileID: 1928496398714385894, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
       propertyPath: m_Name
       value: Caterpillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928496398778071480, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
+      propertyPath: m_Name
+      value: Sphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928496398839488311, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
+      propertyPath: m_Name
+      value: Sphere(8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928496399298958989, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
+      propertyPath: m_Name
+      value: Sphere(4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6a3cf4f0108946a4ae52afb5cd6ddad, type: 3}
