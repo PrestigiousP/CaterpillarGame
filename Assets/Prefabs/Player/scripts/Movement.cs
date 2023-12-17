@@ -14,7 +14,6 @@ public class Movement : MonoBehaviour
         var transforms = GetComponentsInChildren<Transform>();
         _nbSegments = transforms.Where(s => s.name.Contains("Sphere", StringComparison.Ordinal)).Count();
         _segments = transforms.Where(s => !s.name.Equals("Caterpillar", StringComparison.Ordinal)).ToList();
-        //Debug.Log($"nbsegs = {_nbSegments}");
     }
 
     // Update is called once per frame
@@ -28,12 +27,6 @@ public class Movement : MonoBehaviour
 
     private void SetSegmentsPosition(float translationY)
     {
-        // cubic
-        //var firstSphere = _segments.Find(s => s.name.Equals("Sphere", StringComparison.Ordinal));
-        //var middleSphere = _segments.Find(s => s.name.Equals("Sphere (6)", StringComparison.Ordinal));
-        //var secondMiddleSphere = _segments.Find(s => s.name.Equals("Sphere (13)", StringComparison.Ordinal));
-        //var lastSphere = _segments.Find(s => s.name.Equals("Sphere (20)", StringComparison.Ordinal));
-
         // quadratic
         var firstSphere = _segments.Find(s => s.name.Equals("Sphere", StringComparison.Ordinal));
         var middleSphere = _segments.Find(s => s.name.Equals("Sphere (10)", StringComparison.Ordinal));
@@ -59,26 +52,6 @@ public class Movement : MonoBehaviour
                 vector.z);
         }
     }
-
-    //private Vector3 CreateCubicVector(Transform firstSphere,
-    //    Transform secondSphere,
-    //    Transform thirdSphere,
-    //    Transform fourthSphere,
-    //    float lerpStep,
-    //    int index,
-    //    float translationY)
-    //{
-    //    var v1 = CreateQuadraticVector(firstSphere, secondSphere, thirdSphere, lerpStep, index, translationY);
-    //    var v2 = CreateQuadraticVector(secondSphere, thirdSphere, fourthSphere, lerpStep, index, translationY);
-
-    //    var x = Mathf.Lerp(v1.x, v2.x, lerpStep);
-    //    var y = Mathf.Lerp(v1.y, v2.y, lerpStep);
-
-    //    return new Vector3(
-    //        x,
-    //        y,
-    //        _segments[index].transform.position.x);
-    //}
 
     private Vector3 CreateQuadraticVector(Transform firstSphere,
         Transform secondSphere,
