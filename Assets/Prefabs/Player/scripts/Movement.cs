@@ -6,23 +6,24 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private int _nbSegments;
+    private Transform _caterpillar;
     private List<Transform> _segments = new();
 
-    // Start is called before the first frame update
     void Start()
     {
+        _caterpillar = GetComponent<Transform>();
         var transforms = GetComponentsInChildren<Transform>();
         _nbSegments = transforms.Where(s => s.name.Contains("Sphere", StringComparison.Ordinal)).Count();
         _segments = transforms.Where(s => !s.name.Equals("Caterpillar", StringComparison.Ordinal)).ToList();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float translationY = Input.GetAxis("Vertical");
         //float translationX = Input.GetAxis("Horizontal");
 
         SetSegmentsPosition(translationY);
+        //Debug.Log($"rotation: {GetComponent<Transform>().transform.rotation}");
     }
 
     private void SetSegmentsPosition(float translationY)
@@ -40,16 +41,9 @@ public class Movement : MonoBehaviour
                 continue;
             }
 
-            // TODO à tweaker 
-            float lerpStep = (i * 0.05f);
+            float lerpStep = i * 0.05f;
 
-            //var vector = CreateCubicVector(firstSphere, middleSphere, secondMiddleSphere, lastSphere, lerpStep, i, translationY);
-            var vector = CreateQuadraticVector(firstSphere, middleSphere, lastSphere, lerpStep, i, translationY);
-
-            _segments[i].transform.position = new Vector3(
-                vector.x,
-                vector.y,
-                vector.z);
+            _segments[i].transform.position = CreateQuadraticVector(firstSphere, middleSphere, lastSphere, lerpStep, i, translationY);
         }
     }
 
@@ -71,7 +65,21 @@ public class Movement : MonoBehaviour
 
         return new Vector3(
                 x,
-                y,
+                GetYPos(x, y),
                 _segments[index].transform.position.z);
+
+        //return new Vector3(
+        //    x,
+        //    y,
+        //    _segments[index].transform.position.z);
     }
+
+    private float GetYPos(float x, float y)
+    {
+        float result = GetHypothenus(x, y) * _caterpillar.rotation.z;
+        Debug.Log($"y: {result}, caterpillar rotation: {_caterpillar.rotation.z}");
+        return result;
+    }
+
+    private float GetHypothenus(float a, float b) => (float)Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
 }
